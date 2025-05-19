@@ -1,15 +1,28 @@
 import Logo from "./_components/Logo";
 import Navigation from "./_components/Navigation";
 import "@/app/_styles/globals.css"
+import { Josefin_Sans } from "next/font/google"
+
+
+const josefin = Josefin_Sans({
+  subsets: ['latin'],
+  display: "swap"
+})
+
 
 
 export const metadata = {
-  title: "Casa Elan",
+  title: {
+    template: "%s | Casa Elan",
+    default: "Welcome | Casa Elan"
+  },
+  description: "Experience the epitome of luxury at Casa Elan — a collection of elegant cabin hotels nestled in breathtaking mountains and enchanting forests across the globe."
 }
+
 
 export default function RootLayout({ children }) {
   return <html lang="en">
-    <body className="bg-primary-950 text-primary-100 min-h-screen">
+    <body className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen`}>
       <header>
         <Logo />
       </header>

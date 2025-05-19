@@ -1,5 +1,10 @@
 import React from 'react'
 
+
+export const metadata = {
+    title: 'Cabins',
+}
+
 const CabinsPage = () => {
     return (
         <h1>
