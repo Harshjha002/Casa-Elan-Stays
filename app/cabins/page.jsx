@@ -1,5 +1,7 @@
-import React from 'react'
-import CabinCard from '../_components/CabinCard';
+import React, { Suspense } from 'react'
+import CabinList from '../_components/CabinList'
+import Spinner from '../_components/Spinner'
+
 
 
 export const metadata = {
@@ -8,7 +10,6 @@ export const metadata = {
 
 const CabinsPage = () => {
 
-    const cabins = [];
     return (
         <div>
             <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -20,13 +21,11 @@ const CabinsPage = () => {
             </p>
             <h4 className='text-primary-200 text-lg mb-10'>Welcome to <span className=' text-accent-400 '>Casa Elan</span> . Welcome to <span className='text-accent-400 '>paradise</span>...</h4>
 
-            {cabins.length > 0 && (
-                <div>
-                    {cabins.map((cabin) => (
-                        <CabinCard key={cabin.id} cabin={cabin} />
-                    ))}
-                </div>
-            )}
+
+            <Suspense fallback={<Spinner />}>
+                <CabinList />
+            </Suspense>
+
         </div>
     )
 }
