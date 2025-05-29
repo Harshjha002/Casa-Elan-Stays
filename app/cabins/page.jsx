@@ -25,7 +25,6 @@ const CabinsPage = () => {
             <Suspense fallback={<Spinner />}>
                 <CabinList />
             </Suspense>
-
         </div>
     )
 }
